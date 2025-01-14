@@ -1,0 +1,812 @@
+/* Estilos Generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    background: linear-gradient(to bottom right, #f9f4f5, #f2b5c3); /* Fondo degradado rosado */
+    color: #333;
+}
+
+/* Encabezado con fondo transparente, bordes redondeados y sombra sutil */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.9);  /* Fondo semi-transparente */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);  /* Sombra sutil */
+    z-index: 1000;
+    border-radius: 10px;  /* Bordes redondeados */
+    padding: 15px 30px;
+    transition: background-color 0.3s ease;  /* Transición suave para el fondo */
+}
+
+/* Estilo de navegación */
+header nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 30px;  /* Mayor espacio entre los enlaces */
+}
+
+/* Estilo de los enlaces */
+header nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 1.2em;  /* Aumentar el tamaño de los enlaces */
+    font-weight: 600;
+    position: relative;
+    padding: 5px 0;
+    transition: color 0.3s ease, transform 0.3s ease;  /* Transición suave en color y tamaño */
+}
+
+/* Cambio de color al pasar el ratón */
+header nav ul li a:hover {
+    color: #e05a78;  /* Color rosado para el hover */
+    transform: scale(1.1);  /* Efecto de escalado */
+}
+
+/* Subrayado animado al pasar el ratón */
+header nav ul li a::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #e05a78;
+    transition: width 0.3s ease;
+}
+
+header nav ul li a:hover::after {
+    width: 100%;  /* Subrayado que aparece al hacer hover */
+}
+
+/* Cambiar fondo del encabezado al hacer scroll */
+body.scrolled header {
+    background-color: rgba(255, 255, 255, 1);  /* Fondo blanco cuando el usuario hace scroll */
+}
+
+
+/* Sección Inicio */
+#inicio {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #333;
+    padding: 20px;
+}
+
+#inicio h1 {
+    font-size: 5em; /* Tamaño grande para el título */
+    font-weight: bold;
+    margin-bottom: 20px;
+    animation: fade-in 1.5s ease-in-out;
+}
+
+#inicio p {
+    font-size: 1.2em;
+    color: #666;
+    max-width: 600px; /* Limitar el ancho de la descripción */
+    margin: 0 auto; /* Centrar el texto */
+}
+
+/* Animación de entrada */
+@keyframes fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fade-in 1.5s ease-in-out;
+}
+
+/* Sección Proyectos */
+
+#proyectos {
+    padding: 80px 20px; /* Añadimos más espacio alrededor de la sección */
+    background-color: #ffffff;
+    text-align: center;
+}
+
+/* Título "Proyectos" */
+#proyectos h2 {
+    font-size: 4.5em; /* Aumentamos el tamaño del título */
+    color: #333;
+    margin-bottom: 60px; /* Mayor separación debajo del título */
+}
+
+/* Descripción de la sección */
+#proyectos p {
+    font-size: 1.3em;
+    margin-bottom: 60px; /* Mayor separación debajo de la descripción */
+    color: #666;
+}
+
+/* Configuración de la cuadrícula */
+#proyectos .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* Casillas ajustables */
+    gap: 40px; /* Aumentamos el espacio entre las casillas de los proyectos */
+}
+
+/* Estilo de las casillas de los proyectos */
+#proyectos .project {
+    background-color: #f9f4f5;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Efecto hover en las casillas */
+#proyectos .project:hover {
+    transform: translateY(-10px); /* Desplazamiento hacia arriba */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Imágenes dentro de las casillas */
+#proyectos .project img {
+    width: 100%; /* Ajustamos la imagen para que ocupe todo el ancho de la casilla */
+    height: auto; /* Permite que la altura de la imagen se ajuste automáticamente */
+    object-fit: cover; /* Asegura que la imagen ocupe el área sin distorsionarse */
+    border-bottom: 5px solid #f2b5c3; /* Línea decorativa */
+}
+
+/* Títulos dentro de las casillas */
+#proyectos .project h3 {
+    margin: 20px 0 15px;
+    font-size: 1.8em; /* Aumentamos el tamaño del título dentro de la casilla */
+    color: #333;
+}
+
+/* Descripción dentro de las casillas */
+#proyectos .project p {
+    font-size: 1.1em;
+    color: #666;
+    padding: 0 10px 20px;
+}
+
+/* Pie de página */
+footer {
+    background-color: #f2b5c3;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 60px; /* Añadimos más espacio antes del pie de página */
+}
+
+
+/* Espaciado entre los proyectos */
+.proyectos-lista {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 30px; /* Espacio entre las casillas de los proyectos */
+    margin-bottom: 50px; /* Espacio adicional abajo de las casillas */
+}
+
+/* Estilo para las casillas de los proyectos */
+.proyecto {
+    background-color: #f5f5f5; /* Color de fondo */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombras suaves */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Efecto suave al pasar el ratón */
+}
+
+/* Efecto hover en las casillas de los proyectos */
+.proyecto:hover {
+    transform: translateY(-10px); /* Desplazamiento hacia arriba */
+    box-shadow: 0 8px 10px rgba(0, 0, 0, 0.2); /* Aumentamos la sombra */
+}
+
+/* Ajustes generales */
+.proyectos {
+    padding: 40px 20px; /* Añadimos espacio alrededor de toda la sección */
+    text-align: center;
+}
+
+
+
+/* Sección Sobre Mí */
+#sobre-mi {
+    padding: 50px 20px;
+    text-align: center;
+    background-color: #f9f4f5;
+}
+
+.sobre-mi-container {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.sobre-mi-container img {
+    width: 300px; /* Tamaño más grande */
+    height: 300px; /* Tamaño más grande */
+    border-radius: 50%; /* Hace la imagen redonda */
+    object-fit: cover; /* Ajusta la imagen para que siempre esté bien centrada */
+    object-position: center; /* Centra la imagen dentro del círculo */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+    margin-bottom: 20px;
+}
+
+.sobre-mi-container .descripcion h1 {
+    font-size: 2.5em;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.sobre-mi-container .descripcion p {
+    font-size: 1.2em;
+    line-height: 1.8;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+/* Sección Contacto */
+#contacto {
+    padding: 50px 20px;
+    background: linear-gradient(to right, #e05a78, #f2b5c3);
+    text-align: center;
+    color: white;
+}
+
+#contacto h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+#contacto form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+#contacto form label {
+    font-size: 1.2em;
+    color: white;
+}
+
+#contacto form input,
+#contacto form textarea {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #fff;
+    font-size: 1em;
+    margin-bottom: 10px;
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+#contacto form button {
+    padding: 12px 20px;
+    background-color: #e05a78;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#contacto form button:hover {
+    background-color: #c04966;
+}
+
+/* Estilos para el mapa */
+.mapa {
+    margin-top: 30px;
+    max-width: 600px;
+    margin: 30px auto;
+}
+
+.mapa iframe {
+    width: 100%;
+    border-radius: 10px;
+}
+
+/* Botón de "Volver al Inicio" */
+.back-to-top {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 12px 25px;
+    background-color: #e05a78;
+    color: white;
+    font-size: 1.2em;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.back-to-top:hover {
+    background-color: #c04966;
+}
+
+/* Estilo para la página del proyecto */
+#bar-cabinet {
+    padding: 50px 20px;
+    background-color: #f9f4f5;
+    text-align: center;
+}
+
+#bar-cabinet h1 {
+    font-size: 3em;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+#bar-cabinet .intro {
+    font-size: 1.2em;
+    line-height: 1.8;
+    color: #666;
+    margin-bottom: 40px;
+}
+
+/* Galería de imágenes sin casillas */
+.gallery {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 40px;
+    flex-wrap: wrap;  /* Permite que las imágenes se ajusten mejor en dispositivos pequeños */
+}
+
+.gallery img {
+    max-width: 100%; /* Las imágenes ocuparán todo el espacio disponible */
+    height: auto;    /* Mantener la proporción */
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Eliminar el efecto hover */
+.gallery img:hover {
+    transform: none; /* Desactivado */
+}
+
+#detalles {
+    margin: 40px 0;
+}
+
+#detalles h2 {
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+#detalles ul {
+    list-style: none;
+    padding: 0;
+    font-size: 1.2em;
+    color: #666;
+}
+
+#detalles ul li {
+    margin-bottom: 10px;
+}
+
+#testimonios {
+    margin-top: 40px;
+    font-style: italic;
+}
+
+#testimonios blockquote {
+    font-size: 1.4em;
+    color: #333;
+    border-left: 5px solid #e05a78;
+    padding-left: 20px;
+    margin: 0 auto;
+    max-width: 600px;
+}
+
+#testimonios blockquote footer {
+    font-size: 1em;
+    color: #777;
+    margin-top: 10px;
+}
+
+/* Estilo para la página del proyecto */
+#bangtang {
+    padding: 50px 20px;
+    background-color: #f9f4f5;
+    text-align: center;
+}
+
+#bangtang h1 {
+    font-size: 3em;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+#bangtang .intro {
+    font-size: 1.2em;
+    line-height: 1.8;
+    color: #666;
+    margin-bottom: 40px;
+}
+#bangtang .gallery {
+    display: flex;
+    flex-direction: column; /* Hace que las imágenes estén una debajo de otra */
+    align-items: center;    /* Centra las imágenes horizontalmente */
+    gap: 20px;              /* Espacio entre las imágenes (puedes ajustarlo) */
+}
+
+#bangtang .gallery img {
+    width: 100%;            /* Las imágenes ocuparán el ancho del contenedor */
+    max-width: 800px;       /* Define un máximo para que no sean demasiado grandes */
+    height: auto;           /* Mantiene las proporciones de la imagen */
+    border-radius: 10px;    /* Opcional: bordes redondeados */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Opcional: agrega sombra */
+}
+
+/* Hacer la imagen 3 más pequeña */
+.gallery img:nth-child(3) {
+    width: 40%; /* Ajustar el tamaño de la imagen 3 para que sea más pequeña */
+}
+
+#detalles {
+    margin: 40px 0;
+}
+
+#detalles h2 {
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+#detalles ul {
+    list-style: none;
+    padding: 0;
+    font-size: 1.2em;
+    color: #666;
+}
+
+#detalles ul li {
+    margin-bottom: 10px;
+}
+
+#testimonios {
+    margin-top: 40px;
+    font-style: italic;
+}
+
+#testimonios blockquote {
+    font-size: 1.4em;
+    color: #333;
+    border-left: 5px solid #e05a78;
+    padding-left: 20px;
+    margin: 0 auto;
+    max-width: 600px;
+}
+
+#testimonios blockquote footer {
+    font-size: 1em;
+    color: #777;
+    margin-top: 10px;
+}
+
+/* Estilo para la página del proyecto */
+#tero {
+    padding: 50px 20px;
+    background-color: #f9f4f5;
+    text-align: center;
+}
+
+#tero h1 {
+    font-size: 3em;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+#tero .intro {
+    font-size: 1.2em;
+    line-height: 1.8;
+    color: #666;
+    margin-bottom: 40px;
+}
+
+.gallery {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 40px;
+    flex-wrap: wrap;  /* Permite que las imágenes se ajusten mejor en dispositivos pequeños */
+}
+
+.gallery img {
+    max-width: 100%; /* Las imágenes ocuparán todo el espacio disponible */
+    height: auto;    /* Mantener la proporción */
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#detalles {
+    margin: 40px 0;
+}
+
+#detalles h2 {
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+#detalles ul {
+    list-style: none;
+    padding: 0;
+    font-size: 1.2em;
+    color: #666;
+}
+
+#detalles ul li {
+    margin-bottom: 10px;
+}
+
+#testimonios {
+    margin-top: 40px;
+    font-style: italic;
+}
+
+#testimonios blockquote {
+    font-size: 1.4em;
+    color: #333;
+    border-left: 5px solid #e05a78;
+    padding-left: 20px;
+    margin: 0 auto;
+    max-width: 600px;
+}
+
+#testimonios blockquote footer {
+    font-size: 1em;
+    color: #777;
+    margin-top: 10px;
+}
+
+/* Estilo para la página del proyecto */
+#joyeria {
+    padding: 50px 20px;
+    background-color: #f9f4f5;
+    text-align: center;
+}
+
+#joyeria h1 {
+    font-size: 3em;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+#joyeria .intro {
+    font-size: 1.2em;
+    line-height: 1.8;
+    color: #666;
+    margin-bottom: 60px; /* Aumento del espacio entre la descripción general y las piezas */
+}
+
+/* Estilo para la sección de testimonio */
+#comentarios {
+    background-color: #ffffff;  /* Fondo blanco para la casilla */
+    padding: 40px 20px;
+    margin-top: 40px;
+    border-radius: 10px;  /* Bordes redondeados */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);  /* Sombra sutil */
+    max-width: 800px;
+    margin: 40px auto;  /* Centrado */
+    text-align: center;
+}
+
+/* Título del testimonio */
+#comentarios h2 {
+    font-size: 2.5em;
+    color: #4f4f4f;  /* Color oscuro para el título */
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+/* Estilo de la cita */
+#comentarios blockquote {
+    font-size: 1.4em;
+    color: #4f4f4f;  /* Color oscuro para el texto */
+    font-style: italic;
+    margin: 0 auto;
+    padding: 30px 50px;  /* Espaciado interno adecuado */
+    border-left: 5px solid #f2b5c3;  /* Borde rosado claro */
+    background-color: #fafafa;  /* Fondo rosado suave */
+    border-radius: 10px;
+    line-height: 1.8;  /* Aumento del interlineado */
+    max-width: 700px;  /* Ancho máximo para la cita */
+}
+
+/* Pie de la cita */
+#comentarios blockquote footer {
+    font-size: 1.2em;
+    color: #777;  /* Color suave para el pie de la cita */
+    margin-top: 10px;
+    font-style: normal;  /* Normaliza el estilo del pie */
+}
+
+/* Animación de las burbujas que suben y desaparecen suavemente */
+@keyframes floatBubbles {
+    0% {
+        transform: translateY(100vh) translateX(-50%) scale(1); /* Inician desde la parte inferior de la pantalla */
+        opacity: 1;
+    }
+    60% {
+        transform: translateY(-200px) translateX(30%) scale(1.1); /* Se mueven hacia arriba y a la derecha */
+        opacity: 0.6; /* Comienzan a desvanecerse mientras suben */
+    }
+    100% {
+        transform: translateY(-100vh) translateX(-50%) scale(0.8); /* Suben completamente y se desvanecen más */
+        opacity: 0; /* Desaparecen completamente al final */
+    }
+}
+
+/* Estilo para las burbujas (círculos o cuadraditos) */
+.bubble {
+    position: absolute;
+    border-radius: 50%;  /* Forma de círculo */
+    background-color: rgba(255, 0, 150, 0.6);  /* Color rosa translúcido */
+    animation: floatBubbles 30s ease-in-out forwards; /* Duración de la animación prolongada a 30 segundos */
+    opacity: 0;
+    pointer-events: none;  /* No permitir interacción con las burbujas */
+}
+
+.bubble.square {
+    border-radius: 10%;  /* Cuadraditos */
+}
+
+/* Tamaño y comportamiento de las burbujas */
+.bubble {
+    width: 50px;  /* Aumentamos el tamaño para un efecto más visible */
+    height: 50px;
+    animation-duration: 30s;  /* Duración de la animación más larga (30 segundos) */
+    animation-delay: 0s;
+}
+
+/* Fondo de la página */
+body {
+    position: relative;
+    height: 100%; /* Asegurarse de que cubra toda la página */
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Evitar desplazamiento horizontal */
+}
+
+/* Asegurarse de que el contenido de la página (incluyendo proyectos) sea accesible */
+main {
+    position: relative;
+    z-index: 1; /* Asegura que el contenido esté por encima de las burbujas */
+    padding: 20px;
+}
+
+/* Animación de deslizamiento desde los lados */
+@keyframes slideIn {
+    0% {
+        transform: translateX(-100%) scale(0.8); /* Comienza fuera de la pantalla y pequeño */
+        opacity: 0; /* Comienza invisible */
+    }
+    100% {
+        transform: translateX(0) scale(1); /* Llega a su posición final y tamaño normal */
+        opacity: 1; /* Se vuelve visible */
+    }
+}
+
+/* Estilo de los elementos que se deslizarán */
+.slide-in {
+    opacity: 0; /* Empieza invisible */
+    animation: slideIn 1.5s ease-out forwards; /* Duración y tipo de animación */
+}
+
+/* Personalizar para el deslizamiento desde la derecha */
+.slide-in-right {
+    animation: slideIn 1.5s ease-out forwards;
+}
+
+/* Personalizar para el deslizamiento desde la izquierda */
+.slide-in-left {
+    animation: slideIn 1.5s ease-out forwards;
+}
+
+/* Estilo de los textos o elementos dentro de la animación */
+.section-text {
+    font-size: 1.2em;
+    color: #333;
+    margin: 20px 0;
+}
+
+.section-image {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+/* Activar la animación solo cuando el elemento entra en la vista */
+.slide-in.visible {
+    animation: slideIn 1.5s ease-out forwards; /* Activar la animación */
+}
+
+/* Animación de deslizamiento con expansión */
+@keyframes slideUp {
+    0% {
+        transform: translateY(50px); /* Empieza desde abajo */
+        opacity: 0; /* Comienza invisible */
+    }
+    100% {
+        transform: translateY(0); /* Llega a su posición final */
+        opacity: 1; /* Se vuelve visible */
+    }
+}
+
+/* Estilo para todos los elementos del contacto (título, formulario, enlaces y mapa) */
+.contact-element, .contact-link, .contact-form, .contact-map {
+    opacity: 0;
+    animation: slideUp 1s ease-out forwards; /* Aparecerán al mismo tiempo */
+    margin-bottom: 20px; /* Espacio entre los elementos */
+}
+
+/* Personalizar el título "Contacto" */
+h2.contact-element {
+    margin-bottom: 30px; /* Mayor espacio entre "Contacto" y el contenido debajo */
+    font-size: 2.5em; /* Asegurarse de que el título sea más destacado */
+}
+
+/* Formulario de contacto con más separación */
+.contact-form {
+    animation-delay: 0.2s; /* Pequeño retraso para dar fluidez, pero todo aparece al mismo tiempo */
+    margin-bottom: 40px; /* Espacio adicional entre el formulario y el mapa */
+}
+
+/* Los campos del formulario (input, textarea, button) */
+.contact-form input, .contact-form textarea, .contact-form button {
+    margin-bottom: 20px; /* Mayor separación entre campos */
+    padding: 15px;
+    width: 100%;
+    font-size: 1.1em;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+/* Personalizar el mapa de ubicación */
+.contact-map {
+    animation-delay: 0.5s; /* Un pequeño retraso para dar fluidez */
+    margin-top: 40px; /* Mayor espacio arriba del mapa */
+    width: 100%;
+    height: 400px;
+    border-radius: 10px;
+}
+
+/* Espaciado adicional entre el texto y el mapa */
+.contact-link {
+    margin-bottom: 30px; /* Espacio adicional entre el enlace y el formulario */
+}
+
+/* Estilo de los enlaces */
+.contact-link {
+    font-size: 1.2em;
+    color: #3498db;
+    text-decoration: none;
+}
+
+/* Añadir más separación entre las secciones */
+.contact-link:hover {
+    text-decoration: underline;
+}
+
